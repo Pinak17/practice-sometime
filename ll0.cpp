@@ -54,7 +54,7 @@ struct Node {
 int getMiddle(Node *head)
 {
    // Your code here
-	Node* tmp = new Node();
+/*	Node* tmp = new Node();
 	tmp = head;
 	if(tmp == NULL)
 		return -1;
@@ -69,5 +69,20 @@ int getMiddle(Node *head)
 		tmp = tmp->next;
 	}
 	//cout<<tmp->data<<endl;
-	return tmp->data;
+	return tmp->data;*/
+	
+	if(head == NULL)
+		return -1;
+	Node* fast = new Node();
+	Node* slow = new Node();
+	fast = head;
+	slow = head;
+	int c=0;
+	while(fast != NULL) {
+		c++;
+		fast = fast->next;
+		if(c%2 == 0)
+			slow = slow->next;
+	}
+	return slow->data;
 }
