@@ -78,11 +78,12 @@ int getMiddle(Node *head)
 	fast = head;
 	slow = head;
 	int c=0;
-	while(fast != NULL) {
-		c++;
-		fast = fast->next;
-		if(c%2 == 0)
-			slow = slow->next;
+	while(fast != NULL && fast->next != NULL) {
+	//	c++;
+		fast = fast->next->next;
+		slow = slow->next;
+	/*	if(c%2 == 0)
+			slow = slow->next;*/
 	}
 	return slow->data;
 }
